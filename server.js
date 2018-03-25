@@ -31,6 +31,8 @@ var router = express.Router();
 // middleware to use for all requests
 router.use(function(req, res, next) {
     // do logging
+    res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     console.log('Lets make some food!');
     next();
 });
@@ -66,6 +68,7 @@ router.route('/recipe')
 
     // get all the recipes (accessed at GET http://localhost:8080/api/recipes)
     .get(function(req, res) {
+
         Recipe.find(function(err, recipe) {
             if (err)
                 res.send(err);

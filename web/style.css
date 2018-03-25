@@ -1,0 +1,108 @@
+
+
+
+html, body
+{
+    margin:0px;
+    padding:0px;
+    overflow:hidden;
+}
+
+
+#container
+{
+    width:100%;
+    height:100%;
+    position: absolute;
+    overflow: hidden;
+    top:0px;
+}
+
+header {
+  text-align: center;
+  width: 100%;
+  background-color: #2f3542;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  position: absolute;
+  color:white;
+  font-size: 1.3em;
+  font-weight: bold;
+  font-family: 'Comfortaa', cursive;
+}
+
+
+#listContainer
+{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:74px;
+    background-color:#f1f2f6;
+    transition: all 0.5s linear;
+    overflow:hidden;
+}
+
+#recipeContainer
+{
+    position: absolute;
+    left: 100%;
+    width:100%;
+    height:100%;
+    top:70px;
+    background-color:blue;
+    transition: all 0.2s linear;
+}
+
+
+.recipe {
+  width: 90%;
+  padding: 15px;
+  background-color: #ff6348;
+  margin-top: 6px;
+  color: white;
+  border-radius: 30px;
+  /* left: 0px; */
+  margin: 6px auto;
+  font-family: 'Comfortaa', cursive;
+}
+
+
+#backBtn
+{
+    width:30px;
+    height: 30px;
+    position: absolute;
+    top:20px;
+    left:10px;
+    background-color:black;
+    display: none;
+}
+
+#addBtn
+{
+    width:30px;
+    height:30px;
+    position: absolute;
+    right:10px;
+    top:20px;
+    background-color:pink;
+    display: none;
+}
+
+#addContainer
+{
+    width:100%;
+    height:100%;
+    position: absolute;
+    top:0px;
+    background-color:brown;
+    display: none;
+}
+
+
+
+
+
+
+
