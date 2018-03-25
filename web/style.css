@@ -65,7 +65,7 @@ div#searchBox {
     position: absolute;
     top:73px;
     background-color:#f1f2f6;
-    transition: all 0.5s linear;
+    transition: all 0.2s linear;
     overflow:hidden;
 }
 
@@ -127,8 +127,9 @@ div#searchBox {
     height:100%;
     position: absolute;
     top:0px;
-    opacity: 0.8;
-    background-color:brown;
+    opacity: 0;
+    transition: all 0.2s linear;
+    background-color:white;
     display: none;
 }
 
@@ -147,10 +148,12 @@ input#recipeName {
   outline: none;
   border: none;
   background-color: none;
-  background: red;
+  /* background: red; */
   text-align: left;
+  background: none;
+  border-bottom: 1px solid black;
   padding-left: 25px;
-  color: white;
+  color: black;
 }
 
 #ingredients {
@@ -166,15 +169,15 @@ input#recipeName {
   height: 40px;
   outline: none;
   border: none;
-  background-color: none;
-  background: red;
+  background: none;
+  border-bottom: 1px solid black;
   text-align: left;
   padding-left: 25px;
-  color: white;
+  color: black;
 }
 
 div#submitBtn {
-  width: 100px;
+  width: 70%;
   text-align: center;
   position: absolute;
   bottom: 100px;
@@ -182,10 +185,14 @@ div#submitBtn {
   right: 0px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
-  padding: 10px;
+  background-color: #ff6348;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 18px;
+  padding: 16px;
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
 }
-
 
 
 

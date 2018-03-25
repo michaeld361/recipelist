@@ -24,6 +24,7 @@ app.setupDom = function(){
     app.dom.addContainer  = document.getElementById('addContainer');
     app.dom.header        = document.getElementById('header');
     app.dom.listContainer = document.getElementById('listContainer');
+    app.dom.submitBtn     = document.getElementById('submitBtn');
 }
 
 app.addEvents = function()
@@ -45,9 +46,12 @@ app.addEvents = function()
 
     app.dom.addBtn.addEventListener('click', function(){
         app.dom.addContainer.style.display = "block";
-        app.dom.header.style.filter = 'blur(5px)';
-        app.dom.listContainer.style.filter = 'blur(5px)';
+        app.dom.header.style.filter = 'blur(3px)';
+        app.dom.listContainer.style.filter = 'blur(3px)';
+        setTimeout(function(){app.dom.addContainer.style.opacity = '0.8';}, 10);
     });
+
+    app.dom.submitBtn.addEventListener('click', function(){app.postList();});
 }
 
 
@@ -122,6 +126,45 @@ app.buildRecipeList = function(recipeItem)
 
 }
 
+
+app.postList = function()
+{
+
+  var recipeName = document.getElementById('recipeName').value;
+  var recipeIngredients = document.getElementById('ingredients').value;
+
+  var partsOfStr = recipeIngredients.split(',');
+  var listItems = "";
+  for(var i = 0; i < partsOfStr.length; i++)
+  {
+    listItems += "&lists=" + partsOfStr[i];
+    console.log(listItems);
+  }
+
+  document.getElementById('recipeName').value = "";
+  document.getElementById('ingredients').value = "";
+
+  var http = new XMLHttpRequest();
+  var url = "http://localhost:7000/api/recipe/";
+  var params = "name=" + recipeName + "&" + listItems;
+  console.log('params: ' + params)
+  http.open("POST", url, true);
+
+  //Send the proper header information along with the request
+  http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+  http.onreadystatechange = function() {//Call a function when the state changes.
+    if(http.readyState == 4 && http.status == 200) {
+        alert(http.responseText);
+        app.dom.addContainer.style.opacity = "0";
+        app.dom.addContainer.style.display = "none";
+        app.dom.listContainer.style.filter = "initial";
+        app.dom.header.style.filter = "initial";
+    }
+  }
+
+  http.send(params);
+}
 
 
 
