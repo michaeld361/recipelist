@@ -35,15 +35,18 @@ app.addEvents = function()
     }
 
     app.dom.backBtn.addEventListener('click', function(){
+    app.dom.header.style.letterSpacing = "3px";
     app.dom.recipe.style.left       = "100%";
     app.dom.list.style.left         = "0%";
     app.dom.backBtn.style.display   = "none";
-    app.dom.addBtn.style.display    = "none";
-    app.dom.header.innerHTML        = "RecipeList"
+    app.dom.addBtn.style.display    = "block";
+    app.dom.header.innerHTML        = "RecipeStack"
     });
 
     app.dom.addBtn.addEventListener('click', function(){
         app.dom.addContainer.style.display = "block";
+        app.dom.header.style.filter = 'blur(5px)';
+        app.dom.listContainer.style.filter = 'blur(5px)';
     });
 }
 
@@ -55,8 +58,9 @@ app.showRecipe = function(recipe)
     app.dom.recipe.style.left     = "0px";
     app.dom.list.style.left       = "-50%";
     app.dom.backBtn.style.display = "block";
-    app.dom.addBtn.style.display  = "block";
+    app.dom.addBtn.style.display  = "none";
     app.dom.header.innerHTML = recipe.name;
+    app.dom.header.style.letterSpacing = "initial";
    console.log("recipe: " + recipe);
 }
 
